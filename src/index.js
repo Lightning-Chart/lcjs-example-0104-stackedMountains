@@ -19,7 +19,9 @@ const palette = ColorPalettes.fullSpectrum(12)
 const solidFills = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(palette).map(color => new SolidFill({ color }))
 const opaqueFills = solidFills.map(fill => fill.setA(100))
 
-const dateOrigin = new Date(2017, 0, 1);
+// Set the origin date to use for the X Axis
+const dateOrigin = new Date(2017, 0, 1)
+// Multiplier used for X Axis values to transform each X value as a month.
 const dataFrequency = 60 * 60 * 24 * 30 * 1000
 // Create a XY Chart.
 const xyChart = lightningChart().ChartXY({
@@ -28,7 +30,7 @@ const xyChart = lightningChart().ChartXY({
     .setTitle('Product Version Distribution')
     .setAutoCursorMode(AutoCursorModes.onHover)
     .setMouseInteractions(false)
-
+// Set up the X and Y Axes for the chart.
 xyChart.getDefaultAxisX()
     .setMouseInteractions(false)
 
@@ -37,8 +39,7 @@ xyChart.getDefaultAxisY()
     .setInterval(0, 100)
     .setMouseInteractions(false)
 
-// ---- Add multiple series with different. ----
-// Create one Area series to be the base.
+// ---- Add multiple series with different names and values. ----
 const versionName = [
     'Version 1',
     'Version 2',
@@ -53,21 +54,24 @@ const versionName = [
     'Version 11',
     'Version 12'
 ]
+// Array to store the created Area Series.
 const version = []
 versionName.forEach((v, k) => {
+    // The first version (data) is drawn at the bottom of the chart, so we can just use a Area Series to render it.
     if (k == 0) {
         version[k] = xyChart.addAreaSeries()
             .setName(v)
             .setFillStyle(opaqueFills[k])
             .setStrokeStyle(stroke => stroke.setFillStyle(solidFills[k]))
     } else {
+        // Rest of the versions (data) are drawn based on the version before, so we'll use Area Range Series to render it.
         version[k] = xyChart.addAreaRangeSeries()
             .setName(v)
             .setHighFillStyle(opaqueFills[k])
             .setHighStrokeStyle(stroke => stroke.setFillStyle(solidFills[k]))
             .setLowStrokeStyle(emptyLine)
     }
-
+    // Set up how to display the Result Table.
     version[k].setResultTableFormatter((builder, series, xValue, yValueHigh, yValueLow) => {
         return builder
             .addRow(v)
@@ -75,7 +79,7 @@ versionName.forEach((v, k) => {
             .addRow('Distribution: ' + (yValueHigh - yValueLow).toFixed(2) + '%')
     })
 })
-
+// Create data for each Version.
 const data = [
     [
         { x: 0, y: 1.3 },
@@ -314,8 +318,7 @@ const getYLow = (p, k) => {
 }
 
 /**
- * The function creates a stack of Area-AreaRange series.
- * @param data  Matrix of data points.
+ * Fill each Area Series with the data created for them.
  */
 
 data[0].forEach((point, i) => {

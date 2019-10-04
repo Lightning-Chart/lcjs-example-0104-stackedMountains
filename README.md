@@ -68,13 +68,13 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 [3]: https://stackoverflow.com/questions/tagged/lightningchart
 [4]: https://www.arction.com/support-services/
 
-[AreaPoint]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/interfaces/areapoint.html
-[AreaRangeSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/classes/arearangeseries.html
-[AreaSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/classes/chartxy.html#addareaseries
-[AreaSeriesNegative]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/classes/areaseriesnegative.html
-[AreaSeriesPositive]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/classes/areaseriespositive.html
-[AreaSeriesTypes]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/globals.html#areaseriestypes
-[ChartXY]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/classes/chartxy.html
-[ColorPalettes]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/globals.html#colorpalettes
-[ColorRGBA]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/globals.html#colorrgba
-[SolidFill]: https://www.arction.com/lightningchart-js-api-documentation/v1.0.1/classes/solidfill.html
+[AreaPoint]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/interfaces/areapoint.html
+[AreaRangeSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/classes/arearangeseries.html
+[AreaSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/classes/chartxy.html#addareaseries
+[AreaSeriesNegative]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/classes/areaseriesnegative.html
+[AreaSeriesPositive]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/classes/areaseriespositive.html
+[AreaSeriesTypes]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/globals.html#areaseriestypes
+[ChartXY]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/classes/chartxy.html
+[ColorPalettes]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/globals.html#colorpalettes
+[ColorRGBA]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/globals.html#colorrgba
+[SolidFill]: https://www.arction.com/lightningchart-js-api-documentation/v1.1.0/classes/solidfill.html
