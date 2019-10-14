@@ -56,6 +56,7 @@ const versionName = [
 ]
 // Array to store the created Area Series.
 const version = []
+// Create Series for each version name.
 versionName.forEach((v, k) => {
     // The first version (data) is drawn at the bottom of the chart, so we can just use a Area Series to render it.
     if (k == 0) {
@@ -299,6 +300,7 @@ const data = [
     ]
 ]
 
+// Function to get the proper High value for a Series.
 const getYHigh = (p, k) => {
     let sum = 0
     while (p >= 0) {
@@ -308,6 +310,7 @@ const getYHigh = (p, k) => {
     return sum
 }
 
+// Function to get the proper Low value for a Series.
 const getYLow = (p, k) => {
     let sum = 0
     while (p - 1 >= 0) {
@@ -320,14 +323,16 @@ const getYLow = (p, k) => {
 /**
  * Fill each Area Series with the data created for them.
  */
-
 data[0].forEach((point, i) => {
-    version.forEach((chart, index) => {
+    version.forEach((series, index) => {
+        // For the first series, only one Y value is needed.
         if (index == 0) {
             version[index].add({
                 x: point.x * dataFrequency,
                 y: point.y
             })
+        // Rest of the series need both the High and Low values;
+        // Low is the previous Series' High value.
         } else {
             version[index].add(
                 {
