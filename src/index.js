@@ -17,7 +17,7 @@ const {
 // ----- Cache styles -----
 const palette = ColorPalettes.fullSpectrum(12)
 const solidFills = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(palette).map(color => new SolidFill({ color }))
-const opaqueFills = solidFills.map(fill => fill.setA(100))
+const opaqueFills = solidFills.map(fill => fill.setA(150))
 
 // Set the origin date to use for the X Axis
 const dateOrigin = new Date(2017, 0, 1)
@@ -331,8 +331,8 @@ data[0].forEach((point, i) => {
                 x: point.x * dataFrequency,
                 y: point.y
             })
-        // Rest of the series need both the High and Low values;
-        // Low is the previous Series' High value.
+            // Rest of the series need both the High and Low values;
+            // Low is the previous Series' High value.
         } else {
             version[index].add(
                 {
