@@ -32,24 +32,21 @@ const areaFirst = chart.addAreaSeries()
 // Create the next AreaRange series to be stacked on top of previous.
 const areaNext1 = chart.addAreaRangeSeries()
 const areaNext2 = chart.addAreaRangeSeries()
-...
-...
-...
 ```
 
 
 ## API Links
 
-* XY cartesian chart: [ChartXY]
-* Area point: [AreaPoint]
-* Area series: [AreaSeries]
-* Area type: [AreaSeriesTypes]
-* Positive Area series: [AreaSeriesPositive]
-* Negative Area series: [AreaSeriesNegative]
-* Area Range series: [AreaRangeSeries]
-* Color palettes: [ColorPalettes]
-* Solid FillStyle: [SolidFill]
-* RGBA color factory: [ColorRGBA]
+* [XY cartesian chart]
+* [Area point]
+* [Area series]
+* [Area type]
+* [Positive Area series]
+* [Negative Area series]
+* [Area Range series]
+* [Color palettes]
+* [Solid FillStyle]
+* [RGBA color factory]
 
 
 ## Support
@@ -73,14 +70,14 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © Arction Ltd 2009-2020. All rights reserved.
 
 
-[ChartXY]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/classes/chartxy.html
-[AreaPoint]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/interfaces/areapoint.html
-[AreaSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/classes/chartxy.html#addareaseries
-[AreaSeriesTypes]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/globals.html#areaseriestypes
-[AreaSeriesPositive]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/classes/areaseriespositive.html
-[AreaSeriesNegative]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/classes/areaseriesnegative.html
-[AreaRangeSeries]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/classes/arearangeseries.html
-[ColorPalettes]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/globals.html#colorpalettes
-[SolidFill]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/classes/solidfill.html
-[ColorRGBA]: https://www.arction.com/lightningchart-js-api-documentation/v1.3.0/globals.html#colorrgba
+[XY cartesian chart]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/classes/chartxy.html
+[Area point]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/interfaces/areapoint.html
+[Area series]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/classes/chartxy.html#addareaseries
+[Area type]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/globals.html#areaseriestypes
+[Positive Area series]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/classes/areaseriespositive.html
+[Negative Area series]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/classes/areaseriesnegative.html
+[Area Range series]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/classes/arearangeseries.html
+[Color palettes]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/globals.html#colorpalettes
+[Solid FillStyle]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/classes/solidfill.html
+[RGBA color factory]: https://www.arction.com/lightningchart-js-api-documentation/v2.0.0/globals.html#colorrgba
 

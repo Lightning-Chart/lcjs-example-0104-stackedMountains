@@ -11,7 +11,8 @@ const {
     SolidFill,
     emptyLine,
     AxisTickStrategies,
-    AutoCursorModes
+    AutoCursorModes,
+    Themes
 } = lcjs
 
 // ----- Cache styles -----
@@ -25,13 +26,23 @@ const dateOrigin = new Date(2017, 0, 1)
 const dataFrequency = 60 * 60 * 24 * 30 * 1000
 // Create a XY Chart.
 const xyChart = lightningChart().ChartXY({
-    defaultAxisXTickStrategy: AxisTickStrategies.DateTime(dateOrigin)
+    // theme: Themes.dark
 })
+
+// Set up the Chart, disable zooming and panning mouse interactions
+// and set AutoCursor to show when hovering mouse over Series.
+xyChart
     .setTitle('Product Version Distribution')
-    .setAutoCursorMode(AutoCursorModes.onHover)
     .setMouseInteractions(false)
+    .setAutoCursorMode(AutoCursorModes.onHover)
+
 // Set up the X and Y Axes for the chart.
-xyChart.getDefaultAxisX()
+xyChart
+    .getDefaultAxisX()
+    .setTickStrategy(
+        AxisTickStrategies.DateTime,
+        (tickStrategy) => tickStrategy.setDateOrigin(dateOrigin)
+    )
     .setMouseInteractions(false)
 
 xyChart.getDefaultAxisY()
