@@ -84,7 +84,7 @@ versionName.forEach((v, k) => {
             .setLowStrokeStyle(emptyLine)
     }
     // Set up how to display the Result Table.
-    version[k].setResultTableFormatter((builder, series, xValue, yValueHigh, yValueLow) => {
+    version[k].setCursorResultTableFormatter((builder, series, xValue, yValueHigh, yValueLow) => {
         return builder
             .addRow(v)
             .addRow('Date: ' + series.axisX.formatValue(xValue))
