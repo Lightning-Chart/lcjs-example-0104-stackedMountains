@@ -1,6 +1,6 @@
-# Stacked Mountains
+# JavaScript Stacked Mountains Chart
 
-![Stacked Mountains](stackedMountains.png)
+![JavaScript Stacked Mountains Chart](stackedMountains.png)
 
 This demo application belongs to the set of examples for LightningChart JS, data visualization library for JavaScript.
 
