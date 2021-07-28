@@ -70,14 +70,14 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © Arction Ltd 2009-2020. All rights reserved.
 
 
-[XY cartesian chart]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/classes/chartxy.html
-[Area point]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/interfaces/areapoint.html
-[Area series]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/classes/chartxy.html#addareaseries
-[Area type]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/globals.html#areaseriestypes
-[Positive Area series]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/classes/areaseriespositive.html
-[Negative Area series]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/classes/areaseriesnegative.html
-[Area Range series]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/classes/arearangeseries.html
-[Color palettes]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/globals.html#colorpalettes
-[Solid FillStyle]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/classes/solidfill.html
-[RGBA color factory]: https://www.arction.com/lightningchart-js-api-documentation/v3.0.1/globals.html#colorrgba
+[XY cartesian chart]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/chartxy.html
+[Area point]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/interfaces/areapoint.html
+[Area series]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/chartxy.html#addareaseries
+[Area type]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/globals.html#areaseriestypes
+[Positive Area series]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/areaseriespositive.html
+[Negative Area series]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/areaseriesnegative.html
+[Area Range series]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/arearangeseries.html
+[Color palettes]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/globals.html#colorpalettes
+[Solid FillStyle]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/classes/solidfill.html
+[RGBA color factory]: https://www.arction.com/lightningchart-js-api-documentation/v3.1.0/globals.html#colorrgba
 

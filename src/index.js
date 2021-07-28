@@ -1,5 +1,5 @@
 /*
- * LightningChartJS example that showcases creation and styling of spline-series.
+ * LightningChartJS example that showcases stacked mountains chart.
  */
 // Import LightningChartJS
 const lcjs = require('@arction/lcjs')
@@ -7,18 +7,10 @@ const lcjs = require('@arction/lcjs')
 // Extract required parts from LightningChartJS.
 const {
     lightningChart,
-    ColorPalettes,
-    SolidFill,
-    emptyLine,
     AxisTickStrategies,
     AutoCursorModes,
     Themes
 } = lcjs
-
-// ----- Cache styles -----
-const palette = ColorPalettes.fullSpectrum(12)
-const solidFills = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(palette).map(color => new SolidFill({ color }))
-const opaqueFills = solidFills.map(fill => fill.setA(150))
 
 // Set the origin date to use for the X Axis
 const dateOrigin = new Date(2017, 0, 1)
@@ -26,7 +18,7 @@ const dateOrigin = new Date(2017, 0, 1)
 const dataFrequency = 60 * 60 * 24 * 30 * 1000
 // Create a XY Chart.
 const xyChart = lightningChart().ChartXY({
-    // theme: Themes.dark
+    // theme: Themes.darkGold
 })
 
 // Set up the Chart, disable zooming and panning mouse interactions
@@ -73,15 +65,10 @@ versionName.forEach((v, k) => {
     if (k == 0) {
         version[k] = xyChart.addAreaSeries()
             .setName(v)
-            .setFillStyle(opaqueFills[k])
-            .setStrokeStyle(stroke => stroke.setFillStyle(solidFills[k]))
     } else {
         // Rest of the versions (data) are drawn based on the version before, so we'll use Area Range Series to render it.
         version[k] = xyChart.addAreaRangeSeries()
             .setName(v)
-            .setHighFillStyle(opaqueFills[k])
-            .setHighStrokeStyle(stroke => stroke.setFillStyle(solidFills[k]))
-            .setLowStrokeStyle(emptyLine)
     }
     // Set up how to display the Result Table.
     version[k].setCursorResultTableFormatter((builder, series, xValue, yValueHigh, yValueLow) => {
