@@ -1,6 +1,6 @@
 # JavaScript Stacked Mountains Chart
 
-![JavaScript Stacked Mountains Chart](stackedMountains.png)
+![JavaScript Stacked Mountains Chart](stackedMountains-darkGold.png)
 
 This demo application belongs to the set of examples for LightningChart JS, data visualization library for JavaScript.
 
@@ -8,22 +8,22 @@ LightningChart JS is entirely GPU accelerated and performance optimized charting
 
 The demo can be used as an example or a seed project. Local execution requires the following steps:
 
-- Make sure that relevant version of [Node.js](https://nodejs.org/en/download/) is installed
-- Open the project folder in a terminal:
+-   Make sure that relevant version of [Node.js](https://nodejs.org/en/download/) is installed
+-   Open the project folder in a terminal:
 
-        npm install              # fetches dependencies
-        npm start                # builds an application and starts the development server
+          npm install              # fetches dependencies
+          npm start                # builds an application and starts the development server
 
-- The application is available at *http://localhost:8080* in your browser, webpack-dev-server provides hot reload functionality.
+-   The application is available at _http://localhost:8080_ in your browser, webpack-dev-server provides hot reload functionality.
 
 
 ## Description
 
-*Also known as Stacked Area Graph or Stacked Areas*
+_Also known as Stacked Area Graph or Stacked Areas_
 
 The stacked charts are a popular visual aid used for categorizing and comparing the parts of a whole using different colors to distinguish the categories.
 
-This chart is created with custom stacking logic by using ***Area*** and ***AreaRange*** series and position each next data segment on top of the previous. Relying on characteristics and use cases of mountain series mentioned in previous examples, area is drawn on a Cartesian coordinate system and represents the quantitative data. Thus, in the example, the first data segment starts from a zero baseline and each next category would use the magnitude of previous segment as a low starting point.
+This chart is created with custom stacking logic by using **_Area_** and **_AreaRange_** series and position each next data segment on top of the previous. Relying on characteristics and use cases of mountain series mentioned in previous examples, area is drawn on a Cartesian coordinate system and represents the quantitative data. Thus, in the example, the first data segment starts from a zero baseline and each next category would use the magnitude of previous segment as a low starting point.
 
 ```javascript
 // Create one Area series to be the base.
@@ -53,31 +53,31 @@ const areaNext2 = chart.addAreaRangeSeries()
 
 If you notice an error in the example code, please open an issue on [GitHub][0] repository of the entire example.
 
-Official [API documentation][1] can be found on [Arction][2] website.
+Official [API documentation][1] can be found on [LightningChart][2] website.
 
 If the docs and other materials do not solve your problem as well as implementation help is needed, ask on [StackOverflow][3] (tagged lightningchart).
 
-If you think you found a bug in the LightningChart JavaScript library, please contact support@arction.com.
+If you think you found a bug in the LightningChart JavaScript library, please contact support@lightningchart.com.
 
-Direct developer email support can be purchased through a [Support Plan][4] or by contacting sales@arction.com.
+Direct developer email support can be purchased through a [Support Plan][4] or by contacting sales@lightningchart.com.
 
 [0]: https://github.com/Arction/
-[1]: https://www.arction.com/lightningchart-js-api-documentation/
-[2]: https://www.arction.com
+[1]: https://lightningchart.com/lightningchart-js-api-documentation/
+[2]: https://lightningchart.com
 [3]: https://stackoverflow.com/questions/tagged/lightningchart
-[4]: https://www.arction.com/support-services/
+[4]: https://lightningchart.com/support-services/
 
-© Arction Ltd 2009-2020. All rights reserved.
+© LightningChart Ltd 2009-2022. All rights reserved.
 
 
-[XY cartesian chart]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/chartxy.html
-[Area point]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/interfaces/areapoint.html
-[Area series]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/chartxy.html#addareaseries
-[Area type]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#areaseriestypes
-[Positive Area series]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/areaseriespositive.html
-[Negative Area series]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/areaseriesnegative.html
-[Area Range series]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/arearangeseries.html
-[Color palettes]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#colorpalettes
-[Solid FillStyle]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/classes/solidfill.html
-[RGBA color factory]: https://www.arction.com/lightningchart-js-api-documentation/v3.4.0/globals.html#colorrgba
+[XY cartesian chart]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/ChartXY.html
+[Area point]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/interfaces/AreaPoint.html
+[Area series]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/ChartXY.html#addAreaSeries
+[Area type]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/AreaSeriesTypes.html
+[Positive Area series]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/AreaSeriesPositive.html
+[Negative Area series]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/AreaSeriesNegative.html
+[Area Range series]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/AreaRangeSeries.html
+[Color palettes]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/variables/ColorPalettes.html
+[Solid FillStyle]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/classes/SolidFill.html
+[RGBA color factory]: https://lightningchart.com/lightningchart-js-api-documentation/v4.0.0/functions/ColorRGBA.html
 

@@ -5,12 +5,7 @@
 const lcjs = require('@arction/lcjs')
 
 // Extract required parts from LightningChartJS.
-const {
-    lightningChart,
-    AxisTickStrategies,
-    AutoCursorModes,
-    Themes
-} = lcjs
+const { lightningChart, AxisTickStrategies, AutoCursorModes, Themes } = lcjs
 
 // Set the origin date to use for the X Axis
 const dateOrigin = new Date(2017, 0, 1)
@@ -23,24 +18,15 @@ const xyChart = lightningChart().ChartXY({
 
 // Set up the Chart, disable zooming and panning mouse interactions
 // and set AutoCursor to show when hovering mouse over Series.
-xyChart
-    .setTitle('Product Version Distribution')
-    .setMouseInteractions(false)
-    .setAutoCursorMode(AutoCursorModes.onHover)
+xyChart.setTitle('Product Version Distribution').setMouseInteractions(false).setAutoCursorMode(AutoCursorModes.onHover)
 
 // Set up the X and Y Axes for the chart.
 xyChart
     .getDefaultAxisX()
-    .setTickStrategy(
-        AxisTickStrategies.DateTime,
-        (tickStrategy) => tickStrategy.setDateOrigin(dateOrigin)
-    )
+    .setTickStrategy(AxisTickStrategies.DateTime, (tickStrategy) => tickStrategy.setDateOrigin(dateOrigin))
     .setMouseInteractions(false)
 
-xyChart.getDefaultAxisY()
-    .setTitle('Distribution %')
-    .setInterval(0, 100)
-    .setMouseInteractions(false)
+xyChart.getDefaultAxisY().setTitle('Distribution %').setInterval({ start: 0, end: 100, stopAxisAfter: false }).setMouseInteractions(false)
 
 // ---- Add multiple series with different names and values. ----
 const versionName = [
@@ -55,7 +41,7 @@ const versionName = [
     'Version 9',
     'Version 10',
     'Version 11',
-    'Version 12'
+    'Version 12',
 ]
 // Array to store the created Area Series.
 const version = []
@@ -63,12 +49,10 @@ const version = []
 versionName.forEach((v, k) => {
     // The first version (data) is drawn at the bottom of the chart, so we can just use a Area Series to render it.
     if (k == 0) {
-        version[k] = xyChart.addAreaSeries()
-            .setName(v)
+        version[k] = xyChart.addAreaSeries().setName(v)
     } else {
         // Rest of the versions (data) are drawn based on the version before, so we'll use Area Range Series to render it.
-        version[k] = xyChart.addAreaRangeSeries()
-            .setName(v)
+        version[k] = xyChart.addAreaRangeSeries().setName(v)
     }
     // Set up how to display the Result Table.
     version[k].setCursorResultTableFormatter((builder, series, xValue, yValueHigh, yValueLow) => {
@@ -96,7 +80,7 @@ const data = [
         { x: 12, y: 0.5 },
         { x: 13, y: 0.5 },
         { x: 14, y: 0.5 },
-        { x: 15, y: 0.4 }
+        { x: 15, y: 0.4 },
     ],
     [
         { x: 0, y: 4.9 },
@@ -114,7 +98,7 @@ const data = [
         { x: 12, y: 2.2 },
         { x: 13, y: 2 },
         { x: 14, y: 1.9 },
-        { x: 15, y: 1.7 }
+        { x: 15, y: 1.7 },
     ],
     [
         { x: 0, y: 6.8 },
@@ -132,7 +116,7 @@ const data = [
         { x: 12, y: 3.1 },
         { x: 13, y: 3 },
         { x: 14, y: 2.9 },
-        { x: 15, y: 2.6 }
+        { x: 15, y: 2.6 },
     ],
     [
         { x: 0, y: 3 },
@@ -150,7 +134,7 @@ const data = [
         { x: 12, y: 0.9 },
         { x: 13, y: 0.9 },
         { x: 14, y: 0.8 },
-        { x: 15, y: 0.7 }
+        { x: 15, y: 0.7 },
     ],
     [
         { x: 0, y: 25.2 },
@@ -168,7 +152,7 @@ const data = [
         { x: 12, y: 13.8 },
         { x: 13, y: 13.4 },
         { x: 14, y: 12.8 },
-        { x: 15, y: 11.7 }
+        { x: 15, y: 11.7 },
     ],
     [
         { x: 0, y: 11.3 },
@@ -186,7 +170,7 @@ const data = [
         { x: 12, y: 6.4 },
         { x: 13, y: 6.1 },
         { x: 14, y: 5.7 },
-        { x: 15, y: 5.4 }
+        { x: 15, y: 5.4 },
     ],
     [
         { x: 0, y: 22.8 },
@@ -204,7 +188,7 @@ const data = [
         { x: 12, y: 20.8 },
         { x: 13, y: 20.2 },
         { x: 14, y: 19.8 },
-        { x: 15, y: 19.2 }
+        { x: 15, y: 19.2 },
     ],
     [
         { x: 0, y: 24 },
@@ -222,7 +206,7 @@ const data = [
         { x: 12, y: 30.9 },
         { x: 13, y: 29.7 },
         { x: 14, y: 28.6 },
-        { x: 15, y: 28.8 }
+        { x: 15, y: 28.8 },
     ],
     [
         { x: 0, y: 0.7 },
@@ -240,7 +224,7 @@ const data = [
         { x: 12, y: 17.8 },
         { x: 13, y: 19.3 },
         { x: 14, y: 21.1 },
-        { x: 15, y: 22.3 }
+        { x: 15, y: 22.3 },
     ],
     [
         { x: 0, y: 0 },
@@ -258,7 +242,7 @@ const data = [
         { x: 12, y: 3.3 },
         { x: 13, y: 4.4 },
         { x: 14, y: 5.2 },
-        { x: 15, y: 6.1 }
+        { x: 15, y: 6.1 },
     ],
     [
         { x: 0, y: 0 },
@@ -276,7 +260,7 @@ const data = [
         { x: 12, y: 0.3 },
         { x: 13, y: 0.5 },
         { x: 14, y: 0.5 },
-        { x: 15, y: 0.8 }
+        { x: 15, y: 0.8 },
     ],
     [
         { x: 0, y: 0 },
@@ -294,8 +278,8 @@ const data = [
         { x: 12, y: 0 },
         { x: 13, y: 0 },
         { x: 14, y: 0.2 },
-        { x: 15, y: 0.3 }
-    ]
+        { x: 15, y: 0.3 },
+    ],
 ]
 
 // Function to get the proper High value for a Series.
@@ -327,18 +311,16 @@ data[0].forEach((point, i) => {
         if (index == 0) {
             version[index].add({
                 x: point.x * dataFrequency,
-                y: point.y
+                y: point.y,
             })
             // Rest of the series need both the High and Low values;
             // Low is the previous Series' High value.
         } else {
-            version[index].add(
-                {
-                    position: point.x * dataFrequency,
-                    high: getYHigh(index, i),
-                    low: getYLow(index, i)
-                }
-            )
+            version[index].add({
+                position: point.x * dataFrequency,
+                high: getYHigh(index, i),
+                low: getYLow(index, i),
+            })
         }
     })
 })
