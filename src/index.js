@@ -9,7 +9,7 @@ const { lightningChart, AxisTickStrategies, AutoCursorModes, Themes } = lcjs
 
 // Create a XY Chart.
 const xyChart = lightningChart().ChartXY({
-    theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined
+    theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
 })
 
 // Set up the Chart, disable zooming and panning mouse interactions
