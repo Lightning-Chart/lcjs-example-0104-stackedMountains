@@ -2,7 +2,7 @@
  * LightningChartJS example that showcases stacked mountains chart.
  */
 // Import LightningChartJS
-const lcjs = require('@arction/lcjs')
+const lcjs = require('@lightningchart/lcjs')
 
 // Extract required parts from LightningChartJS.
 const { lightningChart, AxisTickStrategies, AutoCursorModes, Themes } = lcjs
@@ -14,20 +14,26 @@ const xyChart = lightningChart({
     theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
 })
 
-// Set up the Chart, disable zooming and panning mouse interactions
-// and set AutoCursor to show when hovering mouse over Series.
-xyChart.setTitle('Product Version Distribution').setMouseInteractions(false).setAutoCursorMode(AutoCursorModes.onHover)
+xyChart.setTitle('Product Version Distribution')
+    .setMouseInteractions(false)
+    .setCursorMode('show-nearest')
+    .setCursorFormatting((_, hit) => [
+        [hit.axisX.formatValue(hit.x)],
+        [hit.series],
+        [`${Math.abs(hit.multiHit[1].y-hit.multiHit[0].y).toFixed(1)} %`]
+    ])
 
 // Set up the X and Y Axes for the chart.
-xyChart.getDefaultAxisX()
+xyChart
+    .getDefaultAxisX()
     .setTickStrategy(AxisTickStrategies.DateTime)
     .setInterval({
         start: new Date(2017, 0, 1).getTime(),
-        end: new Date(2018, 3, 1).getTime()
+        end: new Date(2018, 3, 1).getTime(),
     })
     .setMouseInteractions(false)
 
-xyChart.getDefaultAxisY().setTitle('Distribution %').setInterval({ start: 0, end: 100, stopAxisAfter: false }).setMouseInteractions(false)
+xyChart.getDefaultAxisY().setTitle('Distribution').setUnits('%').setInterval({ start: 0, end: 100, stopAxisAfter: false }).setMouseInteractions(false)
 
 // ---- Add multiple series with different names and values. ----
 const versionName = [
@@ -55,13 +61,6 @@ versionName.forEach((v, k) => {
         // Rest of the versions (data) are drawn based on the version before, so we'll use Area Range Series to render it.
         version[k] = xyChart.addAreaRangeSeries().setName(v)
     }
-    // Set up how to display the Result Table.
-    version[k].setCursorResultTableFormatter((builder, series, xValue, yValueHigh, yValueLow) => {
-        return builder
-            .addRow(v)
-            .addRow('Date: ' + series.axisX.formatValue(xValue))
-            .addRow('Distribution: ' + (yValueHigh - yValueLow).toFixed(2) + '%')
-    })
 })
 // Create data for each Version.
 const data = [
