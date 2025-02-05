@@ -14,13 +14,14 @@ const xyChart = lightningChart({
     theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
 })
 
-xyChart.setTitle('Product Version Distribution')
-    .setMouseInteractions(false)
+xyChart
+    .setTitle('Product Version Distribution')
+    .setUserInteractions(undefined)
     .setCursorMode('show-nearest')
     .setCursorFormatting((_, hit) => [
-        [hit.axisX.formatValue(hit.x)],
+        [{ text: hit.axisX.formatValue(hit.x), rowFillStyle: xyChart.getTheme().cursorResultTableHeaderBackgroundFillStyle }],
         [hit.series],
-        [`${Math.abs(hit.multiHit[1].y-hit.multiHit[0].y).toFixed(1)} %`]
+        [`${Math.abs(hit.multiHit[1].y - hit.multiHit[0].y).toFixed(1)} %`],
     ])
 
 // Set up the X and Y Axes for the chart.
@@ -31,9 +32,7 @@ xyChart
         start: new Date(2017, 0, 1).getTime(),
         end: new Date(2018, 3, 1).getTime(),
     })
-    .setMouseInteractions(false)
-
-xyChart.getDefaultAxisY().setTitle('Distribution').setUnits('%').setInterval({ start: 0, end: 100, stopAxisAfter: false }).setMouseInteractions(false)
+xyChart.getDefaultAxisY().setTitle('Distribution').setUnits('%').setInterval({ start: 0, end: 100, stopAxisAfter: false })
 
 // ---- Add multiple series with different names and values. ----
 const versionName = [
