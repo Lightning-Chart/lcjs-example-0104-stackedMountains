@@ -11,6 +11,7 @@ const { lightningChart, AxisTickStrategies, AutoCursorModes, Themes } = lcjs
 const xyChart = lightningChart({
             resourcesBaseUrl: new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'resources/',
         }).ChartXY({
+	legend: { visible: false },
     theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
 })
 
@@ -308,7 +309,7 @@ data[0].forEach((point, i) => {
     version.forEach((series, index) => {
         // For the first series, only one Y value is needed.
         if (index == 0) {
-            version[index].add({
+            version[index].appendJSON({
                 x: point.x,
                 y: point.y,
             })
