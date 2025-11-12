@@ -16,7 +16,7 @@ const xyChart = lightningChart({
 })
 
 xyChart
-    .setTitle('Product Version Distribution')
+    .setTitle('Proportion of versions over time')
     .setUserInteractions(undefined)
     .setCursorMode('show-nearest')
     .setCursorFormatting((_, hit) => [
