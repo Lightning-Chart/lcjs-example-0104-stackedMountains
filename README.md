@@ -23,12 +23,9 @@ _Also known as Stacked Area Graph or Stacked Areas_
 
 The stacked charts are a popular visual aid used for categorizing and comparing the parts of a whole using different colors to distinguish the categories.
 
-This chart is created with custom stacking logic by using **_Area_** and **_AreaRange_** series and position each next data segment on top of the previous. Relying on characteristics and use cases of mountain series mentioned in previous examples, area is drawn on a Cartesian coordinate system and represents the quantitative data. Thus, in the example, the first data segment starts from a zero baseline and each next category would use the magnitude of previous segment as a low starting point.
+This chart is created with custom stacking logic by using **_AreaRange_** series and position each next data segment on top of the previous. Relying on characteristics and use cases of mountain series mentioned in previous examples, area is drawn on a Cartesian coordinate system and represents the quantitative data. Thus, in the example, the first data segment starts from a zero baseline and each next category would use the magnitude of previous segment as a low starting point.
 
 ```javascript
-// Create one Area series to be the base.
-const areaFirst = chart.addAreaSeries()
-
 // Create the next AreaRange series to be stacked on top of previous.
 const areaNext1 = chart.addAreaRangeSeries()
 const areaNext2 = chart.addAreaRangeSeries()
@@ -69,13 +66,13 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © LightningChart Ltd 2009-2026. All rights reserved.
 
 
-[XY cartesian chart]: https://lightningchart.com/js-charts/api-documentation/v8.3.0/classes/ChartXY.html
-[Area point]: https://lightningchart.com/js-charts/api-documentation/v8.3.0/interfaces/AreaPoint.html
-[Area series]: https://lightningchart.com/js-charts/api-documentation/v8.3.0/classes/ChartXY.html#addAreaSeries
-[Positive Area series]: https://lightningchart.com/js-charts/api-documentation/v8.3.0/classes/PointLineAreaSeries.html
-[Negative Area series]: https://lightningchart.com/js-charts/api-documentation/v8.3.0/classes/PointLineAreaSeries.html
-[Area Range series]: https://lightningchart.com/js-charts/api-documentation/v8.3.0/classes/AreaRangeSeries.html
-[Color palettes]: https://lightningchart.com/js-charts/api-documentation/v8.3.0/variables/ColorPalettes.html
-[Solid FillStyle]: https://lightningchart.com/js-charts/api-documentation/v8.3.0/classes/SolidFill.html
-[RGBA color factory]: https://lightningchart.com/js-charts/api-documentation/v8.3.0/functions/ColorRGBA.html
+[XY cartesian chart]: https://lightningchart.com/js-charts/api-documentation/v9.0.0/classes/ChartXY.html
+[Area point]: https://lightningchart.com/js-charts/api-documentation/v9.0.0/interfaces/AreaPoint.html
+[Area series]: https://lightningchart.com/js-charts/api-documentation/v9.0.0/classes/ChartXY.html#addAreaSeries
+[Positive Area series]: https://lightningchart.com/js-charts/api-documentation/v9.0.0/classes/PointLineAreaSeries.html
+[Negative Area series]: https://lightningchart.com/js-charts/api-documentation/v9.0.0/classes/PointLineAreaSeries.html
+[Area Range series]: https://lightningchart.com/js-charts/api-documentation/v9.0.0/classes/AreaRangeSeries.html
+[Color palettes]: https://lightningchart.com/js-charts/api-documentation/v9.0.0/variables/ColorPalettes.html
+[Solid FillStyle]: https://lightningchart.com/js-charts/api-documentation/v9.0.0/classes/SolidFill.html
+[RGBA color factory]: https://lightningchart.com/js-charts/api-documentation/v9.0.0/functions/ColorRGBA.html
 

@@ -6,13 +6,13 @@ window.lcjsSmallView = window.devicePixelRatio >= 2
 const lcjs = require('@lightningchart/lcjs')
 
 // Extract required parts from LightningChartJS.
-const { lightningChart, AxisTickStrategies, AutoCursorModes, Themes } = lcjs
+const { lightningChart, AxisTickStrategies, emptyFill, Themes } = lcjs
 
 // Create a XY Chart.
 const xyChart = lightningChart({
             resourcesBaseUrl: new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'resources/',
         }).ChartXY({
-	legend: { visible: false },
+    legend: { visible: false },
     theme: (() => {
     const t = Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined
     return t && window.lcjsSmallView ? lcjs.scaleTheme(t, 0.5) : t
@@ -23,12 +23,13 @@ textRenderer: window.lcjsSmallView ? lcjs.htmlTextRenderer : undefined,
 xyChart
     .setTitle('Proportion of versions over time')
     .setUserInteractions(undefined)
-    .setCursorMode('show-nearest')
-    .setCursorFormatting((_, hit) => [
-        [{ text: hit.axisX.formatValue(hit.x), rowFillStyle: xyChart.getTheme().cursorResultTableHeaderBackgroundFillStyle }],
-        [hit.series],
-        [`${Math.abs(hit.multiHit[1].y - hit.multiHit[0].y).toFixed(1)} %`],
-    ])
+    .setCursorFormatting((_, hit, hits) => {
+        console.log(hits)
+        return [
+            { text: hit.axisX.formatValue(hit.x), rowFillStyle: xyChart.getTheme().cursorResultTableHeaderBackgroundFillStyle },
+            ...hits.map((hit) => [hit.series, '', { text: `${Math.abs(hit.range1 - hit.range2).toFixed(1)}%` }]),
+        ]
+    })
 
 // Set up the X and Y Axes for the chart.
 xyChart
@@ -59,13 +60,7 @@ const versionName = [
 const version = []
 // Create Series for each version name.
 versionName.forEach((v, k) => {
-    // The first version (data) is drawn at the bottom of the chart, so we can just use a Area Series to render it.
-    if (k == 0) {
-        version[k] = xyChart.addAreaSeries().setName(v)
-    } else {
-        // Rest of the versions (data) are drawn based on the version before, so we'll use Area Range Series to render it.
-        version[k] = xyChart.addAreaRangeSeries().setName(v)
-    }
+    version[k] = xyChart.addAreaRangeSeries().setName(v).setPointFillStyle(emptyFill)
 })
 // Create data for each Version.
 const data = [
@@ -312,20 +307,10 @@ const getYLow = (p, k) => {
  */
 data[0].forEach((point, i) => {
     version.forEach((series, index) => {
-        // For the first series, only one Y value is needed.
-        if (index == 0) {
-            version[index].appendJSON({
-                x: point.x,
-                y: point.y,
-            })
-            // Rest of the series need both the High and Low values;
-            // Low is the previous Series' High value.
-        } else {
-            version[index].add({
-                position: point.x,
-                high: getYHigh(index, i),
-                low: getYLow(index, i),
-            })
-        }
+        version[index].appendSample({
+            position: point.x,
+            high: getYHigh(index, i),
+            low: getYLow(index, i),
+        })
     })
 })
